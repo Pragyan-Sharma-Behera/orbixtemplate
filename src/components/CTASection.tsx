@@ -1,12 +1,33 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Instagram, Linkedin, Twitter, Dribbble, Mail } from "lucide-react";
+import { ArrowRight, Calendar, Mail } from "lucide-react";
 import orb from "@/assets/purple-orb.png";
 
+const IconLinkedIn = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" {...props}>
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18V10H5.67v8h2.67zM7 8.86a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zM18.34 18v-4.4c0-2.47-1.32-3.62-3.08-3.62-1.42 0-2.06.78-2.41 1.33V10h-2.67v8h2.67v-4.47c0-.24.02-.48.09-.65.19-.48.63-.98 1.36-.98.97 0 1.36.74 1.36 1.81V18h2.68z" />
+  </svg>
+);
+const IconInstagram = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="15" height="15" {...props}>
+    <rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+  </svg>
+);
+const IconTwitter = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" {...props}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+  </svg>
+);
+const IconDribbble = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15" {...props}>
+    <circle cx="12" cy="12" r="10" /><path d="M8 2.5c4 5 6 10 7 19M21 8c-5 1-13 1-18-1M3 16c5-2 13-2 18 1" />
+  </svg>
+);
+
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Twitter, label: "Twitter / X", href: "#" },
-  { icon: Dribbble, label: "Dribbble", href: "#" },
+  { icon: IconLinkedIn, label: "LinkedIn", href: "#" },
+  { icon: IconInstagram, label: "Instagram", href: "#" },
+  { icon: IconTwitter, label: "Twitter / X", href: "#" },
+  { icon: IconDribbble, label: "Dribbble", href: "#" },
   { icon: Mail, label: "hello@orbix.studio", href: "mailto:hello@orbix.studio" },
 ];
 
