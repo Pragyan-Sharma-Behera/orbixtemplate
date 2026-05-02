@@ -1,26 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteBackground } from "@/components/SiteBackground";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Story } from "@/components/Story";
+import { Team } from "@/components/Team";
+import { Portfolio } from "@/components/Portfolio";
+import { Testimonials } from "@/components/Testimonials";
+import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "ORBIX — A digital agency built in orbit" },
+      {
+        name: "description",
+        content:
+          "ORBIX is a creative studio crafting cinematic websites, identities and digital experiences for ambitious brands.",
+      },
+      { property: "og:title", content: "ORBIX — A digital agency built in orbit" },
+      {
+        property: "og:description",
+        content:
+          "Cinematic websites and brand identities for ambitious teams. Build a website or book a free call.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative min-h-screen text-foreground">
+      <SiteBackground />
+      <Navbar />
+      <main>
+        <Hero />
+        <Story />
+        <Team />
+        <Portfolio />
+        <Testimonials />
+        <CTASection />
+      </main>
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
