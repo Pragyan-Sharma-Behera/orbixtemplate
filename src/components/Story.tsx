@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Sparkles, Rocket, Compass, Layers } from "lucide-react";
 
 const pillars = [
-  { icon: Compass, title: "Strategy", text: "We chart the trajectory before lifting a finger to design." },
-  { icon: Layers, title: "Design", text: "Brand systems and interfaces engineered to feel inevitable." },
-  { icon: Rocket, title: "Build", text: "Cinematic websites, fast as light and twice as sharp." },
-  { icon: Sparkles, title: "Grow", text: "Optimize, iterate, compound — we stay long after launch." },
+  { icon: Compass, title: "Strategy", text: "We map the customer journey and define the conversion path — before design starts." },
+  { icon: Layers, title: "Design", text: "Clean, mobile-first interfaces built around a single outcome: action." },
+  { icon: Rocket, title: "Build", text: "Fast, SEO-ready websites. Live in 14 days. Zero bloat, zero excuses." },
+  { icon: Sparkles, title: "Grow", text: "Post-launch optimization, A/B testing, and iteration. We stay long after launch." },
 ];
 
 export function Story() {
@@ -23,17 +23,16 @@ export function Story() {
               · Our Story
             </div>
             <h2 className="text-4xl md:text-6xl font-display font-semibold leading-tight text-gradient">
-              Born from late nights and bigger questions.
+              Trade tenure for speed.
             </h2>
             <p className="mt-8 text-muted-foreground leading-relaxed">
-              ORBIX started in 2017 as a two-person studio with a stubborn idea: that the
-              websites most agencies ship are forgettable. We build the opposite — sites that
-              feel like a feature film opening.
+              Tenure is forgettable; speed is bookable. Most agencies sell you years on a
+              timeline. We sell you a website that ships in 14 days and starts converting the
+              day it goes live.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Today we are a small constellation of strategists, designers and engineers
-              orbiting around one principle: details are the difference between a brand and a
-              memory.
+              ORBIX is a small constellation of strategists, designers and engineers orbiting
+              around one principle: details are the difference between a brand and a memory.
             </p>
           </motion.div>
 

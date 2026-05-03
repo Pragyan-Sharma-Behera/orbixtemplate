@@ -56,7 +56,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-widest text-foreground/70 mb-8"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
-          A digital agency built in orbit
+          A studio for brands that need to convert
         </motion.div>
 
         <motion.h1
@@ -65,9 +65,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-8xl font-display font-semibold leading-[0.95] tracking-tight"
         >
-          <span className="text-gradient">We craft brands</span>
+          <span className="text-gradient">Websites that turn</span>
           <br />
-          <span className="text-gradient">that bend gravity.</span>
+          <span className="text-gradient">visitors into customers.</span>
         </motion.h1>
 
         <motion.p
@@ -76,8 +76,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto"
         >
-          ORBIX is a creative studio building cinematic websites, identities and digital
-          experiences for ambitious brands ready to leave Earth.
+          ORBIX designs and builds high-performing websites for ambitious businesses — from
+          local brands to funded startups. Fast, custom, conversion-focused. Launched in 14 days.
         </motion.p>
 
         <motion.div
@@ -90,7 +90,7 @@ export function Hero() {
             href="#contact"
             className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow hover:shadow-glow-lg transition-all hover:-translate-y-0.5"
           >
-            Build a website
+            See our work
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a
@@ -110,9 +110,9 @@ export function Hero() {
           className="mt-24 grid grid-cols-3 gap-px rounded-2xl glass overflow-hidden max-w-3xl mx-auto"
         >
           {[
-            { k: "120+", v: "Projects shipped" },
-            { k: "40+", v: "Global clients" },
-            { k: "8 yrs", v: "In orbit" },
+            { k: "120+", v: "Businesses outreached" },
+            { k: "14 days", v: "Average launch time" },
+            { k: "100%", v: "Custom-coded, no templates" },
           ].map((s) => (
             <div key={s.v} className="p-6 bg-background/20">
               <div className="text-2xl md:text-3xl font-display font-semibold text-gradient">

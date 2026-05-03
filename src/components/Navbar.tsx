@@ -64,10 +64,10 @@ export function Navbar() {
               Book a free call
             </a>
             <a
-              href="#contact"
+              href="#portfolio"
               className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background hover:bg-primary-glow hover:text-primary-foreground transition-all"
             >
-              Build a website
+              See our work
             </a>
           </div>
 
