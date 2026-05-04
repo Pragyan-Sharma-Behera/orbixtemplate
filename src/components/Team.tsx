@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronLeft } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import pragyan from "@/assets/team-pragyan.png";
 import aniket from "@/assets/team-aniket.png";
 import debarpan from "@/assets/team-debarpan.png";
@@ -119,20 +119,8 @@ export function Team() {
               />
 
               <div className="relative z-10 flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-16 max-w-4xl mx-auto">
-                {/* Left: arrow + portrait */}
+                {/* Left: portrait */}
                 <div className="flex items-center gap-5 shrink-0">
-                  {/* Left arrow → navigates to next member */}
-                  <button
-                    onClick={goNext}
-                    aria-label="Next member"
-                    className="h-12 w-12 flex items-center justify-center rounded-full glass border border-primary/20 hover:bg-white/10 hover:border-primary-glow transition-all group shrink-0"
-                  >
-                    <ChevronLeft
-                      size={20}
-                      className="text-primary-glow group-hover:scale-110 transition-transform"
-                    />
-                  </button>
-
                   <motion.div
                     initial={{ opacity: 0, scale: 0.92 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -162,7 +150,7 @@ export function Team() {
                   </motion.div>
                 </div>
 
-                {/* Right: text, right-aligned */}
+                {/* Right: text + arrow, right-aligned */}
                 <div className="flex-1 text-center md:text-right flex flex-col items-center md:items-end">
                   <div className="text-[11px] uppercase tracking-[0.3em] text-primary-glow">
                     {m.eyebrow}
@@ -191,6 +179,17 @@ export function Team() {
                     <span className="text-primary-glow">·</span>{" "}
                     <span className="text-primary-glow">{m.taglineAccent}</span>
                   </div>
+
+                  <button
+                    onClick={goNext}
+                    aria-label="Next member"
+                    className="mt-8 h-12 w-12 flex items-center justify-center rounded-full glass border border-primary/20 hover:bg-white/10 hover:border-primary-glow transition-all group shrink-0"
+                  >
+                    <ChevronRight
+                      size={20}
+                      className="text-primary-glow group-hover:scale-110 transition-transform"
+                    />
+                  </button>
                 </div>
               </div>
             </article>
