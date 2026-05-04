@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
 
 type Project = {
   name: string;
   url: string;
-  domain: string;
+  img: string;
   meta: string;
   tagline: string;
 };
@@ -14,32 +13,27 @@ const projects: Project[] = [
   {
     name: "Dusri Biwi Cafe",
     url: "https://dusribiwicafe.vercel.app",
-    domain: "dusribiwicafe.vercel.app",
+    img: "/dusribiwi.jpeg",
     meta: "RESTAURANT · WEB · 2025",
     tagline: "Pure-veg cafe & restaurant, Silchar",
   },
   {
     name: "Sagarika Silchar",
     url: "https://sagarika-silchar.vercel.app",
-    domain: "sagarika-silchar.vercel.app",
+    img: "/sagarikasilchar.jpeg",
     meta: "HOSPITALITY · WEB · 2025",
     tagline: "Local brand site, Silchar",
   },
   {
     name: "Burnout Cafe",
     url: "https://burnoutcafe.vercel.app",
-    domain: "burnoutcafe.vercel.app",
+    img: "/burnoutcafe.jpeg",
     meta: "CAFE · WEB · 2025",
     tagline: "Cafe & community space",
   },
 ];
 
-const IFRAME_WIDTH = 1280;
-const IFRAME_HEIGHT = 800;
-
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const [failed, setFailed] = useState(false);
-
   return (
     <motion.a
       href={project.url}
@@ -74,75 +68,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       />
 
       <div className="relative">
-        {/* Browser mockup */}
+        {/* Screenshot image */}
         <div
-          className="relative overflow-hidden rounded-xl border"
-          style={{
-            borderColor: "rgba(155, 80, 255, 0.18)",
-            background: "#0a0612",
-          }}
+          className="relative overflow-hidden rounded-xl"
+          style={{ border: "1px solid rgba(155, 80, 255, 0.18)" }}
         >
-          {/* Top bar */}
-          <div
-            className="flex items-center gap-2 px-3 py-2 border-b"
-            style={{
-              borderColor: "rgba(155, 80, 255, 0.15)",
-              background: "rgba(20, 12, 35, 0.9)",
-            }}
-          >
-            <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-            </div>
-            <div className="flex-1 flex justify-center">
-              <div
-                className="text-[10px] px-3 py-1 rounded-full truncate max-w-[70%] text-foreground/60"
-                style={{
-                  background: "rgba(155, 80, 255, 0.08)",
-                  border: "1px solid rgba(155, 80, 255, 0.15)",
-                }}
-              >
-                {project.domain}
-              </div>
-            </div>
-            <div className="w-12" />
-          </div>
-
-          {/* Iframe viewport */}
-          <div
-            className="relative w-full overflow-hidden bg-[#0a0612]"
-            style={{ aspectRatio: `${IFRAME_WIDTH} / ${IFRAME_HEIGHT}` }}
-          >
-            {!failed ? (
-              <iframe
-                src={project.url}
-                title={project.name}
-                loading="lazy"
-                onError={() => setFailed(true)}
-                scrolling="no"
-                className="absolute left-0 top-0 origin-top-left border-0"
-                style={{
-                  width: `${IFRAME_WIDTH}px`,
-                  height: `${IFRAME_HEIGHT}px`,
-                  transform: `scale(var(--iframe-scale))`,
-                  WebkitTransform: `scale(var(--iframe-scale))`,
-                  pointerEvents: "none",
-                  // @ts-expect-error custom prop
-                  "--iframe-scale": "calc(100cqw / 1280)",
-                }}
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a0d2e] to-[#0a0612]">
-                <div className="text-center px-6">
-                  <div className="text-xs uppercase tracking-widest text-[#c084fc] mb-3">
-                    Live Preview
-                  </div>
-                  <div className="font-display text-2xl text-foreground">{project.name}</div>
-                </div>
-              </div>
-            )}
-          </div>
+          <img
+            src={project.img}
+            alt={project.name}
+            className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+            style={{ aspectRatio: "16/10" }}
+            loading="lazy"
+          />
         </div>
 
         {/* Meta + name */}
@@ -196,14 +133,9 @@ export function Portfolio() {
           </p>
         </motion.div>
 
-        <div
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          style={{ containerType: "inline-size" } as React.CSSProperties}
-        >
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
-            <div key={p.url} style={{ containerType: "inline-size" } as React.CSSProperties}>
-              <ProjectCard project={p} index={i} />
-            </div>
+            <ProjectCard key={p.url} project={p} index={i} />
           ))}
         </div>
 

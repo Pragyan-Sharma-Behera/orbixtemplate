@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft } from "lucide-react";
 import pragyan from "@/assets/team-pragyan.png";
 import aniket from "@/assets/team-aniket.png";
 import debarpan from "@/assets/team-debarpan.png";
@@ -81,6 +81,8 @@ export function Team() {
     el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
   };
 
+  const goNext = () => goTo((active + 1) % members.length);
+
   return (
     <section id="team" className="relative py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -103,10 +105,10 @@ export function Team() {
           ref={trackRef}
           className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
-          {members.map((m, i) => (
+          {members.map((m) => (
             <article
               key={m.name}
-              className="relative shrink-0 w-full snap-center px-6 py-12 md:py-20 flex flex-col items-center text-center"
+              className="relative shrink-0 w-full snap-center px-6 py-12 md:py-20"
               aria-label={m.name}
             >
               {/* Per-panel glow */}
@@ -116,73 +118,81 @@ export function Team() {
                 style={{ background: `radial-gradient(closest-side, ${m.glow}, transparent 70%)` }}
               />
 
-              {/* Portrait */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.92 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-                className="relative z-10"
-              >
-                <div
-                  className="relative h-[220px] w-[220px] rounded-full p-[2px]"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, oklch(0.72 0.28 305), oklch(0.55 0.28 295))",
-                    boxShadow:
-                      "0 0 0 6px oklch(0.62 0.26 300 / 0.15), 0 30px 60px -20px oklch(0.62 0.26 300 / 0.7)",
-                  }}
-                >
-                  <div className="h-full w-full rounded-full overflow-hidden bg-background">
-                    <img
-                      src={m.img}
-                      alt={m.name}
-                      width={440}
-                      height={440}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
+              <div className="relative z-10 flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-16 max-w-4xl mx-auto">
+                {/* Left: arrow + portrait */}
+                <div className="flex items-center gap-5 shrink-0">
+                  {/* Left arrow → navigates to next member */}
+                  <button
+                    onClick={goNext}
+                    aria-label="Next member"
+                    className="h-12 w-12 flex items-center justify-center rounded-full glass border border-primary/20 hover:bg-white/10 hover:border-primary-glow transition-all group shrink-0"
+                  >
+                    <ChevronLeft
+                      size={20}
+                      className="text-primary-glow group-hover:scale-110 transition-transform"
                     />
+                  </button>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.92 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div
+                      className="relative h-[200px] w-[200px] md:h-[240px] md:w-[240px] rounded-full p-[2px]"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, oklch(0.72 0.28 305), oklch(0.55 0.28 295))",
+                        boxShadow:
+                          "0 0 0 6px oklch(0.62 0.26 300 / 0.15), 0 30px 60px -20px oklch(0.62 0.26 300 / 0.7)",
+                      }}
+                    >
+                      <div className="h-full w-full rounded-full overflow-hidden bg-background">
+                        <img
+                          src={m.img}
+                          alt={m.name}
+                          width={480}
+                          height={480}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Right: text, right-aligned */}
+                <div className="flex-1 text-center md:text-right flex flex-col items-center md:items-end">
+                  <div className="text-[11px] uppercase tracking-[0.3em] text-primary-glow">
+                    {m.eyebrow}
+                  </div>
+
+                  <h3 className="mt-3 font-display font-bold uppercase text-[26px] md:text-[36px] tracking-tight leading-none text-foreground">
+                    {m.name}
+                  </h3>
+
+                  <p
+                    className="mt-5 max-w-[360px] text-sm leading-relaxed"
+                    style={{ color: "rgba(255,255,255,0.7)" }}
+                  >
+                    {m.bio}
+                  </p>
+
+                  <a
+                    href="#contact"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm text-primary-glow underline underline-offset-4 decoration-primary/60 hover:decoration-primary-glow transition"
+                  >
+                    {m.cta} <ArrowRight size={14} />
+                  </a>
+
+                  <div className="mt-8 font-display uppercase tracking-[0.35em] text-xs md:text-sm text-foreground/80">
+                    {m.taglineMain}{" "}
+                    <span className="text-primary-glow">·</span>{" "}
+                    <span className="text-primary-glow">{m.taglineAccent}</span>
                   </div>
                 </div>
-              </motion.div>
-
-              <div className="relative z-10 mt-8 text-[11px] uppercase tracking-[0.3em] text-primary-glow">
-                {m.eyebrow}
               </div>
-
-              <h3 className="relative z-10 mt-4 font-display font-bold uppercase text-[28px] md:text-[36px] tracking-tight leading-none text-foreground">
-                {m.name}
-              </h3>
-
-              <p
-                className="relative z-10 mt-6 max-w-[320px] text-sm leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.7)" }}
-              >
-                {m.bio}
-              </p>
-
-              <a
-                href="#contact"
-                className="relative z-10 mt-6 inline-flex items-center gap-1.5 text-sm text-primary-glow underline underline-offset-4 decoration-primary/60 hover:decoration-primary-glow transition"
-              >
-                {m.cta} <ArrowRight size={14} />
-              </a>
-
-              <div className="relative z-10 mt-10 font-display uppercase tracking-[0.35em] text-xs md:text-sm text-foreground/80">
-                {m.taglineMain}{" "}
-                <span className="text-primary-glow">·</span>{" "}
-                <span className="text-primary-glow">{m.taglineAccent}</span>
-              </div>
-
-              {/* Swipe hint arrow */}
-              {i < members.length - 1 && (
-                <div
-                  aria-hidden
-                  className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center rounded-full glass animate-pulse"
-                >
-                  <ChevronRight className="text-primary-glow" />
-                </div>
-              )}
             </article>
           ))}
         </div>

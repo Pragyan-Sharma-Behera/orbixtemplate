@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { ProjectFormDialog } from "@/components/ProjectFormDialog";
 
 const links = [
   { label: "Story", href: "#story" },
@@ -95,13 +96,9 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="rounded-full bg-gradient-primary px-5 py-2 text-center text-sm font-medium text-primary-foreground"
-            >
-              Build a website
-            </a>
+            <ProjectFormDialog
+              triggerClassName="rounded-full bg-gradient-to-br from-[oklch(0.55_0.28_295)] to-[oklch(0.72_0.28_305)] px-5 py-2 text-center text-sm font-medium text-white w-full"
+            />
           </motion.div>
         )}
       </div>
