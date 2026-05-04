@@ -8,22 +8,6 @@ import { Portfolio } from "@/components/Portfolio";
 import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "ORBIX — A digital agency built in orbit" },
-      {
-        name: "description",
-        content:
-          "ORBIX is a creative studio crafting cinematic websites, identities and digital experiences for ambitious brands.",
-      },
-      { property: "og:title", content: "ORBIX — A digital agency built in orbit" },
-      {
-        property: "og:description",
-        content:
-          "Cinematic websites and brand identities for ambitious teams. Build a website or book a free call.",
-      },
-    ],
-  }),
   component: Index,
 });
 
