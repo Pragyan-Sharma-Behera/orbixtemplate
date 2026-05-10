@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import pragyan from "@/assets/team-pragyan.png";
 import aniket from "@/assets/team-aniket.png";
-import debarpan from "@/assets/team-debarpan.png";
+
 import biswarup from "@/assets/team-biswarup.png";
 
 type Member = {
@@ -38,16 +38,7 @@ const members: Member[] = [
     taglineAccent: "DIRECTOR",
     glow: "oklch(0.7 0.24 340 / 0.55)",
   },
-  {
-    img: debarpan,
-    eyebrow: "Meet the Creative Director",
-    name: "Debarpan Das",
-    bio: "Debarpan owns the creative vision at ORBIX — turning strategy into interfaces that feel inevitable. Every brand system, every screen, every detail is filtered through a single question: does it earn its place?",
-    cta: "Work with Debarpan",
-    taglineMain: "CREATIVE",
-    taglineAccent: "DIRECTOR",
-    glow: "oklch(0.6 0.25 280 / 0.55)",
-  },
+
   {
     img: biswarup,
     eyebrow: "Meet the Social Lead",
