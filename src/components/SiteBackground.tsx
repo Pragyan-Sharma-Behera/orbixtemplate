@@ -3,13 +3,13 @@ import silkBg from "@/assets/purple-silk-bg.jpg";
 
 const silk = {
   animate: {
-    x: [0, -70, 40, -55, 20, -40, 0],
-    y: [0, 50, -35, 60, -20, 40, 0],
-    scale: [1.15, 1.28, 1.18, 1.25, 1.2, 1.26, 1.15],
-    rotate: [0, 3, -2, 2.5, -1.5, 2, 0],
+    x: [0, -40, 20, -30, 0],
+    y: [0, 30, -20, 35, 0],
+    scale: [1.15, 1.22, 1.17, 1.2, 1.15],
+    rotate: [0, 1.5, -1, 1, 0],
   },
   transition: {
-    duration: 10,
+    duration: 28,
     repeat: Infinity,
     ease: "easeInOut",
   },
@@ -17,39 +17,39 @@ const silk = {
 
 const orb1 = {
   animate: {
-    x: ["58%", "42%", "68%", "48%", "62%", "38%", "58%"],
-    y: ["8%", "28%", "2%", "22%", "6%", "25%", "8%"],
-    scale: [1, 1.45, 0.8, 1.3, 0.9, 1.35, 1],
-    opacity: [0.45, 0.7, 0.35, 0.65, 0.4, 0.68, 0.45],
+    x: ["58%", "50%", "65%", "55%", "58%"],
+    y: ["8%", "22%", "4%", "18%", "8%"],
+    scale: [1, 1.25, 0.9, 1.15, 1],
+    opacity: [0.38, 0.55, 0.35, 0.5, 0.38],
   },
-  transition: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+  transition: { duration: 18, repeat: Infinity, ease: "easeInOut" },
 };
 
 const orb2 = {
   animate: {
-    x: ["3%", "22%", "-2%", "18%", "5%", "20%", "3%"],
-    y: ["58%", "40%", "72%", "45%", "65%", "42%", "58%"],
-    scale: [1, 0.7, 1.45, 0.85, 1.3, 0.75, 1],
-    opacity: [0.35, 0.55, 0.28, 0.5, 0.32, 0.52, 0.35],
+    x: ["3%", "16%", "1%", "12%", "3%"],
+    y: ["58%", "46%", "68%", "52%", "58%"],
+    scale: [1, 0.8, 1.3, 0.95, 1],
+    opacity: [0.28, 0.42, 0.25, 0.38, 0.28],
   },
-  transition: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 },
+  transition: { duration: 22, repeat: Infinity, ease: "easeInOut", delay: 3 },
 };
 
 const orb3 = {
   animate: {
-    x: ["30%", "48%", "20%", "44%", "26%", "46%", "30%"],
-    y: ["75%", "58%", "85%", "62%", "78%", "60%", "75%"],
-    scale: [0.9, 1.4, 0.75, 1.25, 0.85, 1.35, 0.9],
-    opacity: [0.25, 0.48, 0.18, 0.42, 0.22, 0.45, 0.25],
+    x: ["30%", "40%", "25%", "38%", "30%"],
+    y: ["75%", "65%", "80%", "70%", "75%"],
+    scale: [0.9, 1.2, 0.85, 1.1, 0.9],
+    opacity: [0.2, 0.35, 0.18, 0.3, 0.2],
   },
-  transition: { duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 },
+  transition: { duration: 26, repeat: Infinity, ease: "easeInOut", delay: 6 },
 };
 
 const shimmer = {
   animate: {
     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
   },
-  transition: { duration: 4, repeat: Infinity, ease: "linear" },
+  transition: { duration: 12, repeat: Infinity, ease: "linear" },
 };
 
 export function SiteBackground() {
@@ -88,7 +88,7 @@ export function SiteBackground() {
 
       {/* Glow orb 1 — top right */}
       <motion.div
-        className="absolute h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        className="absolute h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
         style={{
           background: "radial-gradient(circle, oklch(0.62 0.26 300 / 0.7), transparent 70%)",
           willChange: "transform, opacity",
@@ -99,7 +99,7 @@ export function SiteBackground() {
 
       {/* Glow orb 2 — bottom left */}
       <motion.div
-        className="absolute h-[750px] w-[750px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        className="absolute h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
         style={{
           background: "radial-gradient(circle, oklch(0.55 0.28 295 / 0.65), transparent 70%)",
           willChange: "transform, opacity",
@@ -110,7 +110,7 @@ export function SiteBackground() {
 
       {/* Glow orb 3 — bottom center, accent */}
       <motion.div
-        className="absolute h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        className="absolute h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
         style={{
           background: "radial-gradient(circle, oklch(0.68 0.22 315 / 0.5), transparent 70%)",
           willChange: "transform, opacity",
